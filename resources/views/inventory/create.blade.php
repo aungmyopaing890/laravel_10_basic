@@ -18,15 +18,27 @@
         @csrf
         <div class="mb-3">
             <label class="from-lable" for="name">Item Name</label>
-            <input type="text" class="form-control" name="name">
+            <input type="text" value="{{ old('name') }}" class="@error('name') is-invalid @enderror form-control"
+                name="name">
+            @error('name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="from-lable" for="price">Item Price</label>
-            <input type="text" class="form-control" name="price">
+            <input type="text" value="{{ old('price') }}" class="@error('price') is-invalid @enderror form-control"
+                name="price">
+            @error('price')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="from-lable" for="Stock">Stock</label>
-            <input type="number" class="form-control" name="stock">
+            <input type="number" value="{{ old('stock') }}" class="@error('stock') is-invalid @enderror form-control"
+                name="stock">
+            @error('stock')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <button class="btn btn-primary">Save Item</button>
