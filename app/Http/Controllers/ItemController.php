@@ -14,7 +14,7 @@ class ItemController extends Controller
     public function index()
     {
         return view('inventory.index', [
-            "items" => Item::all()
+            "items" => Item::paginate(10)
         ]);
     }
 
