@@ -32,7 +32,7 @@ class ItemController extends Controller
     public function store(StoreItemRequest $request)
     {
         $item = Item::create($request->all());
-        return redirect()->route('item.index');
+        return redirect()->route('item.index')->with("status", "New Item has been Created.");
     }
 
     /**
@@ -60,7 +60,7 @@ class ItemController extends Controller
         $item->price = $request->price;
         $item->stock = $request->stock;
         $item->update();
-        return redirect()->route('item.index');
+        return redirect()->route('item.index')->with("status", "$request->name has been Updated.");
     }
 
     /**
@@ -69,6 +69,6 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
         $item->delete();
-        return redirect()->back();
+        return redirect()->back()->with("status", "$item->name has been deleted.");
     }
 }
