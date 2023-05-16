@@ -28,4 +28,14 @@ class StoreItemRequest extends FormRequest
 
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'နာမ်မည်ထည့်လေကွာ.....',
+            'name.min' => 'နာမ်မည်က ၃လုံးလောက်တော့ ထည့်လေကွာ.....',
+            'name.max' => 'နာမ်မည်က 50 အများဆုံးပဲ ထည့်လို့ရတယ်ကွ.....',
+            'name.unique' => 'နာမ်မည်က ထပ်လို့မရဘူးကွ.....',
+        ];
+    }
 }
