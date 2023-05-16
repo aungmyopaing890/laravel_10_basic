@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateItemRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -21,8 +22,11 @@ class UpdateItemRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = request()->item->id;
         return [
-            //
+            "name" => "required|min:3|max:50|unique:item,name,$id",
+            "price" => "required|numeric|gte:50",
+            "stock" => "required|numeric|gt:3",
         ];
     }
 }
