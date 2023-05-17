@@ -13,9 +13,26 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return view('inventory.index', [
-            "items" => Item::paginate(10)
-        ]);
+        // $items = Item::where("id", "<", 50)->where("price", "<", 500)->get();
+        // $items = Item::where("stock", "<", 10)->get();
+        // $items = Item::where("stock", "<", 10)->orWhere("price", ">", 900)->get();
+        // $items = Item::whereIn("id", [15, 10, 20, 25])->get();
+        // $items = Item::whereBetween("price", [700, 900])->get();
+
+        // $items = Item::paginate(15);
+        // dd($items);
+        // return $items;
+        $items = Item::when(request()->has("keyword"), function ($query) {
+            $keyword = request()->keyword;
+            $query->where("name", "like", "%" . $keyword . "%");
+            $query->orWhere("price", "like", "%" . $keyword . "%");
+            $query->orWhere("stock", "like", "%" . $keyword . "%");
+        })->when(request()->has("name"), function ($query) {
+            $sortType = request()->name ?? 'asc';
+            $query->orderBy("name", $sortType);
+        })
+            ->paginate(10)->WithQueryString();
+        return view('inventory.index', compact('items'));
     }
 
     /**
