@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ItemApiController;
+use App\Http\Middleware\CheckApiToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource("item", ItemApiController::class);
+Route::apiResource("item", ItemApiController::class)->middleware(CheckApiToken::class);

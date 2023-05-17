@@ -14,6 +14,12 @@ class ItemApiController extends Controller
      */
     public function index()
     {
+
+        // if (!request()->has('token')) {
+        //     return response()->json(["message" => 'Api Token is required!'], 401);
+        // } else if (request()->token !== 'test') {
+        //     return response()->json(["message" => 'Api Token is required!'], 401);
+        // }
         $items = Item::when(request()->has("keyword"), function ($query) {
             $keyword = request()->keyword;
             $query->where("name", "like", "%" . $keyword . "%");
