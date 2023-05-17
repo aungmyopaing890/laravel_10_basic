@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ItemResource;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -23,7 +24,9 @@ class ItemApiController extends Controller
             $query->orderBy("name", $sortType);
         })
             ->paginate(10)->WithQueryString();
-        return response()->json(["message" => 'Success', "data" => $items], 200);
+
+        // return response()->json(["message" => 'Success', "data" => $items], 200);
+        return ItemResource::collection($items);
     }
 
     /**
@@ -50,7 +53,8 @@ class ItemApiController extends Controller
             "price" => $request->price,
             "stock" => $request->stock,
         ]);
-        return response()->json(["message" => 'Item created Successfully! ', "data" => $item], 200);
+        return new ItemResource($item);
+        // return response()->json(["message" => 'Item created Successfully! ', "data" => $item], 200);
     }
 
     /**
@@ -62,7 +66,8 @@ class ItemApiController extends Controller
         if (is_null($item)) {
             return response()->json(["message" => 'Not Found', "data" => []], 404);
         }
-        return response()->json(["message" => 'Success', "data" => $item], 200);
+        // return response()->json(["message" => 'Success', "data" => $item], 200);
+        return new ItemResource($item);
     }
 
     /**
@@ -88,7 +93,9 @@ class ItemApiController extends Controller
         $item->price = $request->price;
         $item->stock = $request->stock;
         $item->update();
-        return response()->json(["message" => 'Item Updated Successfully! ', "data" => $item], 200);
+        return new ItemResource($item);
+
+        // return response()->json(["message" => 'Item Updated Successfully! ', "data" => $item], 200);
     }
 
     /**
