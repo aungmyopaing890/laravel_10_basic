@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource("item", ItemApiController::class)->middleware('cat');
+// Route::apiResource("item", ItemApiController::class)->middleware('cat');
+Route::apiResource("item", ItemApiController::class);
