@@ -51,5 +51,10 @@ Route::controller(AuthController::class)->group(function () {
         Route::get("login", "login")->name('auth.login');
         Route::post("login", "check")->name('auth.check');
     });
-    Route::post("logout", "logout")->name('auth.logout')->middleware(IsAuthenticated::class);
+
+    Route::middleware(IsAuthenticated::class)->group(function () {
+        Route::post("logout", "logout")->name('auth.logout');
+        Route::get("/password-change", "passwordChange")->name('auth.passwordChange');
+        Route::post("/password-change", "passwordChanging")->name('auth.passwordChanging');
+    });
 });

@@ -25,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
             'user',
             fn () => session('auth') ? true : false
         );
+        Blade::if(
+            'notUser',
+            fn () => !session('auth')
+        );
         Paginator::useBootstrapFive();
     }
 }

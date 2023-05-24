@@ -13,7 +13,6 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-
     public function store(Request $request)
     {
         $request->validate([
@@ -27,8 +26,7 @@ class AuthController extends Controller
         $student->email = $request->email;
         $student->password = Hash::make($request->password);
         $student->save();
-
-        return redirect()->route('auth.login')->with('message', "Student Register Succesful! ");
+        return redirect()->route('auth.login')->with('message', "Student Register Succesful!");
     }
 
     public function login()
@@ -54,7 +52,27 @@ class AuthController extends Controller
     public function logout()
     {
         session()->forget('auth');
+        return redirect()->route('auth.login');
+    }
 
+    public function passwordChange()
+    {
+        return view("auth.changepassword");
+    }
+
+    public function passwordChanging(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required|min:8',
+            'password' => 'required|min:8|confirmed',
+        ], ["email.exists" => "Email or Password Wrong"]);
+        if (!Hash::check($request->current_password, session('auth')->password)) {
+            return redirect()->route("auth.passwordChange")->withErrors(["current_password" => "Old Password Wrong"]);
+        }
+        $student = Student::find(session('auth')->id);
+        $student->password = Hash::make($request->password);
+        $student->update();
+        session()->forget('auth');
         return redirect()->route('auth.login');
     }
 }
