@@ -16,7 +16,8 @@ class IsVerified
     public function handle(Request $request, Closure $next): Response
     {
         if (is_null($request->session()->get('auth')->email_verified_at)) {
-            return abort(403, 'Email Verify First!');
+            // return abort(403, 'Email Verify First!');
+            return redirect()->route('auth.verify');
         }
         return $next($request);
     }
