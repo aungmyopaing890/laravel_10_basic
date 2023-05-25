@@ -19,6 +19,7 @@
                 @include('layouts.nav')
             </div>
             <div class="col-12 col-md-9">
+                @include('layouts.mail-verify-noti')
                 @yield('content')
             </div>
         </div>
