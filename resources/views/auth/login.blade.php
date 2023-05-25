@@ -28,6 +28,9 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-        <button class="btn btn-primary">Login</button>
+        <div class="mb-3">
+            <button class="btn btn-primary">Login</button>
+            <a href="{{ route('auth.forgot') }}" class="btn btn-link">reset password</a>
+        </div>
     </form>
 @endsection
