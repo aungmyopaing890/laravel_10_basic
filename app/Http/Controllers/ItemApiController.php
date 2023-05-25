@@ -12,7 +12,7 @@ class ItemApiController extends Controller
 
     public function __construct()
     {
-        $this->middleware('cat')->only(["store", "update", "delete"]);
+        // $this->middleware('cat')->only(["store", "update", "delete"]);
     }
     /**
      * Display a listing of the resource.
