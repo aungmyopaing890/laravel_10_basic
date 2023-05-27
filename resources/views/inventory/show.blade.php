@@ -1,9 +1,7 @@
-@extends('layouts.master')
-
-@section('title')
-    Item Details
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Item Details
+    @endsection
     <h4>Item Details</h4>
     <table class="table">
         <tr>
@@ -23,4 +21,4 @@
             <td>{{ $item->created_at }}</td>
         </tr>
     </table>
-@endsection
+</x-master-layout>

@@ -1,9 +1,8 @@
-@extends('layouts.master')
+<x-master-layout>
 
-@section('title')
-    Register
-@endsection
-@section('content')
+    @section('title')
+        Register
+    @endsection
     <h4>Student Register</h4>
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -51,4 +50,4 @@
 
         <button class="btn btn-primary">Register Student</button>
     </form>
-@endsection
+</x-master-layout>

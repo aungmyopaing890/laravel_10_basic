@@ -1,9 +1,7 @@
-@extends('layouts.master')
-
-@section('title')
-    Forgot Password
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Forgot Password
+    @endsection
     <h4>Forgot Password</h4>
     <hr>
     <form action="{{ route('auth.checkEmail') }}" method="post">
@@ -18,4 +16,4 @@
         </div>
         <button class="btn btn-primary">Reset</button>
     </form>
-@endsection
+</x-master-layout>

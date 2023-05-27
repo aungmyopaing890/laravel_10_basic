@@ -1,9 +1,7 @@
-@extends('layouts.master')
-
-@section('title')
-    Create Item
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Create Item
+    @endsection
     <h4>Create Item</h4>
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -43,4 +41,4 @@
 
         <button class="btn btn-primary">Save Item</button>
     </form>
-@endsection
+</x-master-layout>

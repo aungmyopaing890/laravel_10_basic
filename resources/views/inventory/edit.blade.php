@@ -1,9 +1,7 @@
-@extends('layouts.master')
-
-@section('title')
-    Item Edit
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Item Edit
+    @endsection
     <h4>Item Edit</h4>
     <form action="{{ route('item.update', $item->id) }}" method="post">
         @method('put')
@@ -35,4 +33,4 @@
 
         <button class="btn btn-primary">Update Item</button>
     </form>
-@endsection
+</x-master-layout>

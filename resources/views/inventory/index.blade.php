@@ -1,9 +1,8 @@
-@extends('layouts.master')
+<x-master-layout>
 
-@section('title')
-    Item List
-@endsection
-@section('content')
+    @section('title')
+        Item List
+    @endsection
     @if (session('status'))
         <div class="alert  alert-success">
             {{ session('status') }}
@@ -73,4 +72,4 @@
         </tbody>
     </table>
     {{ $items->onEachSide(2)->links() }}
-@endsection
+</x-master-layout>

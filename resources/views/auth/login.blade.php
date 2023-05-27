@@ -1,9 +1,7 @@
-@extends('layouts.master')
-
-@section('title')
-    Login Page
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Login Page
+    @endsection
     <h4>Student Login</h4>
     @if (session('message'))
         <div class="alert  alert-success">
@@ -33,4 +31,4 @@
             <a href="{{ route('auth.forgot') }}" class="btn btn-link">reset password</a>
         </div>
     </form>
-@endsection
+</x-master-layout>

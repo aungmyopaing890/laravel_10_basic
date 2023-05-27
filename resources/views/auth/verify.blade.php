@@ -1,9 +1,8 @@
-@extends('layouts.master')
+<x-master-layout>
 
-@section('title')
-    Verify Code
-@endsection
-@section('content')
+    @section('title')
+        Verify Code
+    @endsection
     <h4>Verify Code</h4>
     <hr>
     <form action="{{ route('auth.verifying') }}" method="post">
@@ -18,4 +17,4 @@
         </div>
         <button class="btn btn-primary">Verify Now</button>
     </form>
-@endsection
+</x-master-layout>

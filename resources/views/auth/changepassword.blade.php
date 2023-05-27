@@ -1,9 +1,8 @@
-@extends('layouts.master')
+<x-master-layout>
 
-@section('title')
-    Change Password
-@endsection
-@section('content')
+    @section('title')
+        Change Password
+    @endsection
     <h4>Change Password</h4>
     <form action="{{ route('auth.passwordChanging') }}" method="post">
         @csrf
@@ -33,4 +32,4 @@
         </div>
         <button class="btn btn-primary">Change Now</button>
     </form>
-@endsection
+</x-master-layout>

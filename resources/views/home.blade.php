@@ -1,10 +1,9 @@
-@extends('layouts.master')
-
-@section('title')
-    Home Page
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Home Page
+    @endsection
     <h4>I am home</h4>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem optio laborum iste laudantium sit tempora libero, vel
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem optio laborum iste laudantium sit tempora libero,
+        vel
         molestiae ad, recusandae nulla quae quam cupiditate! Quos qui ab consequuntur vero ipsum!</p>
-@endsection
+</x-master-layout>

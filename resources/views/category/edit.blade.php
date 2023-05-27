@@ -1,9 +1,7 @@
-@extends('layouts.master')
-
-@section('title')
-    Category Edit
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Category Edit
+    @endsection
     <h4>Category Edit</h4>
 
     <form action="{{ route('category.update', $category->id) }}" method="post">
@@ -12,13 +10,14 @@
 
         <div class="mb-3">
             <label class="from-lable" for="title">Title</label>
-            <input type="text" class="form-control" name="title" value="{{ $category->title }}">
+            <x-input id="title" type="name" name="title" :value="$category->title" class="form-control" placeholder="Title"
+                required />
         </div>
         <div class="mb-3">
             <label class="from-lable" for="description">Description</label>
-            <textarea type="text" class="form-control" name="description">{{ $category->description }}</textarea>
+            <x-textarea id="description" rows="7" type="number" name="description" :value="$category->description"
+                class="form-control" placeholder="Description" required />
         </div>
-
         <button class="btn btn-primary">Update Category</button>
     </form>
-@endsection
+</x-master-layout>

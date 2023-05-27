@@ -1,11 +1,10 @@
-@extends('layouts.master')
-
-@section('title')
-    Dashboard Home
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Dashboard Home
+    @endsection
     <h4>I am Dashboard home</h4>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem optio laborum iste laudantium sit tempora libero, vel
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem optio laborum iste laudantium sit tempora libero,
+        vel
         molestiae ad, recusandae nulla quae quam cupiditate! Quos qui ab consequuntur vero ipsum!</p>
 
     <div class="alert alert-info ">
@@ -16,4 +15,4 @@
         @csrf
         <button class="btn btn-danger">Logout</button>
     </form>
-@endsection
+</x-master-layout>

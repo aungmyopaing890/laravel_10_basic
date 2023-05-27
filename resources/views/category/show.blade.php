@@ -1,9 +1,7 @@
-@extends('layouts.master')
-
-@section('title')
-    Cateogry Details
-@endsection
-@section('content')
+<x-master-layout>
+    @section('title')
+        Cateogry Details
+    @endsection
     <h4>Cateogry Details</h4>
     <table class="table">
         <tr>
@@ -19,5 +17,4 @@
             <td>{{ $category->created_at }}</td>
         </tr>
     </table>
-    <button class=""></button>
-@endsection
+</x-master-layout>
